@@ -3,6 +3,10 @@ from .recommender import recommend_cbf, recommend_usercf, recommend_itemcf, reco
 
 router = APIRouter()
 
+@router.get("/health")
+def health():
+    return {"ok": True}
+
 @router.get("/recommend/cbf")
 def recommend_cbf_api(title: str):
     try:
