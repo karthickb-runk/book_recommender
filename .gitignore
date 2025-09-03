@@ -1,0 +1,46 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.envrc
+*.env
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit cache
+.streamlit/
+.streamlit/secrets.toml
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Build / packaging
+*.egg-info/
+dist/
+build/
+
+# ignore all pickles
+*.pkl
+
+# Data (ignore raw CSVs, keep cleaned ones)
+book_recommender/data/*.csv
+!book_recommender/data/books_clean.csv
+!book_recommender/data/ratings_clean.csv
+!book_recommender/data/books.csv
+!book_recommender/data/ratings.csv
+
+# Render / deployment extras
+.env
