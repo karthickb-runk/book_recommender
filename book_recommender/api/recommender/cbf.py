@@ -12,17 +12,18 @@ def build_features():
     tfidf = TfidfVectorizer(stop_words="english", max_features=2000)
     X_title = tfidf.fit_transform(books_clean["title"].fillna(""))
 
-    ohe = OneHotEncoder(sparse_output=False, handle_unknown="ignore")
-    X_author = ohe.fit_transform(books_clean[["authors"]])
+    # ohe = OneHotEncoder(sparse_output=False, handle_unknown="ignore")
+    # X_author = ohe.fit_transform(books_clean[["authors"]])
 
-    X_lang = pd.get_dummies(books_clean["language_code"], prefix="lang").values
+    # X_lang = pd.get_dummies(books_clean["language_code"], prefix="lang").values
 
-    scaler = MinMaxScaler()
-    X_num = scaler.fit_transform(
-        books_clean[["average_rating", "ratings_count", "original_publication_year"]].fillna(0)
-    )
+    # scaler = MinMaxScaler()
+    # X_num = scaler.fit_transform(
+    #     books_clean[["average_rating", "ratings_count", "original_publication_year"]].fillna(0)
+    # )
 
-    return sp.hstack([X_title, X_author, X_lang, X_num])
+    # return sp.hstack([X_title, X_author, X_lang, X_num])
+    return sp.hstack([X_title])
 
 def recommend_cbf(title, top_n=10):
     matches = books_clean[books_clean["title"].str.lower() == title.lower()]
